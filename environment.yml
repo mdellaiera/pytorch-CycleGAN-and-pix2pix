@@ -10,7 +10,7 @@ dependencies:
   - pytorch-cuda=12.1
   - numpy=1.24.3
   - scikit-image
-  - opencv-python
+  - opencv
   - matplotlib
   - pip
   - pip:
