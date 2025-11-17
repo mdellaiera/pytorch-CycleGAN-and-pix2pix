@@ -13,7 +13,7 @@ bash
 
 SCRIPT="/home/svu/mda/pytorch-CycleGAN-and-pix2pix/train.py"
 
-/home/svu/mda/miniforge3/envs/pytorch-img2img/bin/python $SCRIPT \
+/scratch/mda/envs/pytorch-img2img/bin/python $SCRIPT \
     --dataroot /scratch/mda/datasets/sen12 \
     --name test_cyclegan_sentinel12 \
     --checkpoints_dir /scratch/mda/checkpoints/sen12 \

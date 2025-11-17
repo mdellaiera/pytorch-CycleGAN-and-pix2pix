@@ -13,7 +13,7 @@ bash
 
 SCRIPT="/home/svu/mda/pytorch-CycleGAN-and-pix2pix/train.py"
 
-/home/svu/mda/miniforge3/envs/pytorch-img2img/bin/python $SCRIPT \
+/scratch/mda/envs/pytorch-img2img/bin/python $SCRIPT \
     --dataroot /scratch/mda/datasets/sen12 \
     --name cyclegan_sentinel12 \
     --checkpoints_dir /scratch/mda/checkpoints/sen12 \
@@ -33,7 +33,7 @@ SCRIPT="/home/svu/mda/pytorch-CycleGAN-and-pix2pix/train.py"
     --direction AtoB \
     --serial_batches \
     --num_threads 5 \
-    --batch_size 1 \
+    --batch_size 32 \
     --load_size 256 \
     --crop_size 256 \
     --max_dataset_size 1000000 \
@@ -46,8 +46,8 @@ SCRIPT="/home/svu/mda/pytorch-CycleGAN-and-pix2pix/train.py"
     --load_iter 0 \
     --verbose \
     --suffix "" \
-    --n_epochs 10 \
-    --n_epochs_decay 10 \
+    --n_epochs 100 \
+    --n_epochs_decay 100 \
     --beta1 0.5 \
     --lr 0.0002 \
     --gan_mode lsgan \
