@@ -1,0 +1,44 @@
+#!/bin/bash
+
+SCRIPT="/home/nus/workspace/pytorch-CycleGAN-and-pix2pix/train.py"
+
+/home/nus/miniforge3/envs/pytorch-img2img/bin/python $SCRIPT \
+    --dataroot /home/nus/workspace/datasets/sen12 \
+    --name test_cyclegan \
+    --checkpoints_dir /home/nus/workspace/checkpoints/cyclegan \
+    --model cycle_gan \
+    --input_nc 1 \
+    --output_nc 1 \
+    --ngf 64 \
+    --ndf 64 \
+    --netD basic \
+    --netG resnet_9blocks \
+    --norm instance \
+    --init_type normal \
+    --init_gain 0.02 \
+    --no_dropout \
+    --pool_size 50 \
+    --dataset_mode unaligned \
+    --direction AtoB \
+    --serial_batches \
+    --num_threads 4 \
+    --batch_size 1 \
+    --load_size 256 \
+    --crop_size 256 \
+    --max_dataset_size 100 \
+    --preprocess none \
+    --no_flip \
+    --display_winsize 256 \
+    --epoch latest \
+    --load_iter 0 \
+    --verbose \
+    --suffix "" \
+    --n_epochs 2 \
+    --n_epochs_decay 2 \
+    --beta1 0.5 \
+    --lr 0.0002 \
+    --gan_mode lsgan \
+    --pool_size 50 \
+    --lr_policy linear \
+    --lr_decay_iters 50 \
+    --save_epoch_freq 1
