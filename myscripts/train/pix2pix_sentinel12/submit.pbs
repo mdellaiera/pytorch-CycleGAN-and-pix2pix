@@ -1,6 +1,6 @@
 #!/bin/bash
 #PBS -P TO_REPLACE
-#PBS -N train_cyclegan_sentinel12_pbs
+#PBS -N train_pix2pix_sentinel12_pbs
 #PBS -j oe
 #PBS -k oed
 #PBS -l select=1:mem=500gb:ncpus=36:ngpus=2
@@ -15,9 +15,9 @@ SCRIPT="/home/svu/mda/pytorch-CycleGAN-and-pix2pix/train.py"
 
 /home/svu/mda/miniforge3/envs/pytorch-img2img/bin/python $SCRIPT \
     --dataroot /scratch/mda/datasets/sen12 \
-    --name cyclegan_sentinel12 \
+    --name pix2pix_sentinel12 \
     --checkpoints_dir /scratch/mda/checkpoints/sen12 \
-    --model cycle_gan \
+    --model pix2pix \
     --input_nc 1 \
     --output_nc 1 \
     --ngf 64 \

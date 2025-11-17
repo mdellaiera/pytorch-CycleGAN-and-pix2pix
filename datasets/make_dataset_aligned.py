@@ -1,5 +1,5 @@
 import os
-
+from tqdm import tqdm
 from PIL import Image
 
 
@@ -21,7 +21,7 @@ def align_images(a_file_paths, b_file_paths, target_path):
     if not os.path.exists(target_path):
         os.makedirs(target_path)
 
-    for i in range(len(a_file_paths)):
+    for i in tqdm(range(len(a_file_paths))):
         img_a = Image.open(a_file_paths[i])
         img_b = Image.open(b_file_paths[i])
         assert(img_a.size == img_b.size)

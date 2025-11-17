@@ -1,23 +1,12 @@
 #!/bin/bash
-#PBS -P TO_REPLACE
-#PBS -N test_train_cyclegan_sentinel12_pbs
-#PBS -j oe
-#PBS -k oed
-#PBS -l select=1:mem=500gb:ncpus=36:ngpus=0
-#PBS -l walltime=01:00:00
 
-cd ${PBS_O_WORKDIR}
+SCRIPT="/home/nus/workspace/pytorch-CycleGAN-and-pix2pix/train.py"
 
-bash
-. ~/.bashrc
-
-SCRIPT="/home/svu/mda/pytorch-CycleGAN-and-pix2pix/train.py"
-
-/home/svu/mda/miniforge3/envs/pytorch-img2img/bin/python $SCRIPT \
-    --dataroot /scratch/mda/datasets/sen12 \
-    --name test_cyclegan_sentinel12 \
-    --checkpoints_dir /scratch/mda/checkpoints/sen12 \
-    --model cycle_gan \
+/home/nus/miniforge3/envs/pytorch-img2img/bin/python $SCRIPT \
+    --dataroot /home/nus/workspace/datasets/sen12 \
+    --name test_pix2pix \
+    --checkpoints_dir /home/nus/workspace/checkpoints/pix2pix \
+    --model pix2pix \
     --input_nc 1 \
     --output_nc 1 \
     --ngf 64 \
@@ -29,10 +18,10 @@ SCRIPT="/home/svu/mda/pytorch-CycleGAN-and-pix2pix/train.py"
     --init_gain 0.02 \
     --no_dropout \
     --pool_size 50 \
-    --dataset_mode unaligned \
+    --dataset_mode aligned \
     --direction AtoB \
     --serial_batches \
-    --num_threads 5 \
+    --num_threads 4 \
     --batch_size 1 \
     --load_size 256 \
     --crop_size 256 \
@@ -40,8 +29,6 @@ SCRIPT="/home/svu/mda/pytorch-CycleGAN-and-pix2pix/train.py"
     --preprocess none \
     --no_flip \
     --display_winsize 256 \
-    --display_freq 10000 \
-    --print_freq 10000 \
     --epoch latest \
     --load_iter 0 \
     --verbose \
@@ -54,6 +41,4 @@ SCRIPT="/home/svu/mda/pytorch-CycleGAN-and-pix2pix/train.py"
     --pool_size 50 \
     --lr_policy linear \
     --lr_decay_iters 50 \
-    --display_id 0 \
-    --save_epoch_freq 1 \
-    --save_latest_freq 240000
+    --save_epoch_freq 1
