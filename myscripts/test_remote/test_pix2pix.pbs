@@ -1,0 +1,59 @@
+#!/bin/bash
+#PBS -P TO_REPLACE
+#PBS -N test_train_pix2pix_sentinel12_pbs
+#PBS -j oe
+#PBS -k oed
+#PBS -l select=1:mem=500gb:ncpus=36:ngpus=0
+#PBS -l walltime=01:00:00
+
+cd ${PBS_O_WORKDIR}
+
+bash
+. ~/.bashrc
+
+SCRIPT="/home/svu/mda/pytorch-CycleGAN-and-pix2pix/train.py"
+
+/scratch/mda/envs/pytorch-img2img/bin/python $SCRIPT \
+    --dataroot /scratch/mda/datasets/sen12 \
+    --name test_pix2pix_sentinel12 \
+    --checkpoints_dir /scratch/mda/checkpoints/sen12 \
+    --model pix2pix \
+    --input_nc 1 \
+    --output_nc 1 \
+    --ngf 64 \
+    --ndf 64 \
+    --netD basic \
+    --netG resnet_9blocks \
+    --norm instance \
+    --init_type normal \
+    --init_gain 0.02 \
+    --no_dropout \
+    --pool_size 50 \
+    --dataset_mode aligned \
+    --direction AtoB \
+    --serial_batches \
+    --num_threads 5 \
+    --batch_size 1 \
+    --load_size 256 \
+    --crop_size 256 \
+    --max_dataset_size 100 \
+    --preprocess none \
+    --no_flip \
+    --display_winsize 256 \
+    --display_freq 10000 \
+    --print_freq 10000 \
+    --epoch latest \
+    --load_iter 0 \
+    --verbose \
+    --suffix "" \
+    --n_epochs 2 \
+    --n_epochs_decay 2 \
+    --beta1 0.5 \
+    --lr 0.0002 \
+    --gan_mode lsgan \
+    --pool_size 50 \
+    --lr_policy linear \
+    --lr_decay_iters 50 \
+    --display_id 0 \
+    --save_epoch_freq 1 \
+    --save_latest_freq 240000
