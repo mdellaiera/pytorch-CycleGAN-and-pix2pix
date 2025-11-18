@@ -1,5 +1,4 @@
 #!/bin/bash
-#PBS -P TO_REPLACE
 #PBS -N test_train_cyclegan_sentinel12_pbs
 #PBS -j oe
 #PBS -k oed
