@@ -40,8 +40,6 @@ SCRIPT="/home/svu/mda/pytorch-CycleGAN-and-pix2pix/train.py"
     --preprocess none \
     --no_flip \
     --display_winsize 256 \
-    --display_freq 10000 \
-    --print_freq 10000 \
     --epoch latest \
     --load_iter 0 \
     --verbose \
@@ -54,6 +52,4 @@ SCRIPT="/home/svu/mda/pytorch-CycleGAN-and-pix2pix/train.py"
     --pool_size 50 \
     --lr_policy linear \
     --lr_decay_iters 50 \
-    --display_id 0 \
-    --save_epoch_freq 1 \
-    --save_latest_freq 240000
+    --save_epoch_freq 1
