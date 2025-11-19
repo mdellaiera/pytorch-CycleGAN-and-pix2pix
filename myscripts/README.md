@@ -30,3 +30,9 @@ $ mamba env create -f environment.yml
 $ conda activate pytorch-img2img
 $ python ./datasets/make_dataset_aligned.py --dataset-path /scratch/mda/datasets/sen12
 ```
+
+### Check which project to use
+```bash
+$ amgr login
+$ hpc project
+```

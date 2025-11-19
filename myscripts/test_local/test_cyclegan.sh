@@ -21,7 +21,7 @@ SCRIPT="/home/nus/workspace/pytorch-CycleGAN-and-pix2pix/train.py"
     --dataset_mode unaligned \
     --direction AtoB \
     --serial_batches \
-    --num_threads 4 \
+    --num_threads 5 \
     --batch_size 1 \
     --load_size 256 \
     --crop_size 256 \
