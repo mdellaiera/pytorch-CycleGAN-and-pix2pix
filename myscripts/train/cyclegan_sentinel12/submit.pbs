@@ -32,7 +32,7 @@ SCRIPT="/home/svu/mda/pytorch-CycleGAN-and-pix2pix/train.py"
     --direction AtoB \
     --serial_batches \
     --num_threads 5 \
-    --batch_size 32 \
+    --batch_size 16 \
     --load_size 256 \
     --crop_size 256 \
     --max_dataset_size 1000000 \
